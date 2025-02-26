@@ -1,4 +1,4 @@
-const cardContainer = document.querySelector('[data-js="card-container"]');     // Kann man auch mit Import machen
+const cardContainer = document.querySelector('[data-js="card-container"]'); // Kann man auch mit Import machen
 
 // Function Card erstellen
 

@@ -1,5 +1,7 @@
+// Imports
 import { createCharacterCard } from "./components/CharacterCard/CharacterCard.js";
 
+// Deklarationen
 console.clear();
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
@@ -18,40 +20,44 @@ const maxPage = 1;
 const page = 1;
 const searchQuery = "";
 
-// functions
+// Functions
 async function fetchCharacters() {
   const response = await fetch("https://rickandmortyapi.com/api/character");
   const data = await response.json();
 
-
   data.results.map((characterElement) => {
-    // console.log(characterElement);
+    // Deklaration der Objektelemente die durch die API gelesen werden
     const {
       image: imageSource,
       name: imageAltText,
       name: nameCardTitle,
       status: statusCardInfo,
-      type: typeCardInfo,
+      type: typeCardInfo, 
     } = characterElement;
-    // console.log(imageSource);
-    // const { episodes } = characterElement;
-    // console.log(episodes.length);
+    
+    // Destruct "episode" separat, weil "length" operation nicht im destruct funktionierte
+    const { episode } = characterElement;
+    const occurencesCardInfo = episode.length;
 
+    // Aufruf der Card-Creation
     createCharacterCard(
       imageSource,
       imageAltText,
       nameCardTitle,
       statusCardInfo,
       typeCardInfo,
-      "1"
+      occurencesCardInfo
     );
 
-    // imageSource,imageAltText,nameCardTitle,statusCardInfo,typeCardInfo,occurencesCardInfo
-    // return characterElement.name;
+    // Return wird nicht verwendet
+    // return characterElement;
   });
 }
 
-const arr1 = [1, 2, 3];
+// Experiments
+// hier experimenteller Code
 
+// Aufruf des Builds
 fetchCharacters();
-// console.log(cardContainer);
+
+// Exports
