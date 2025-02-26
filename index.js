@@ -14,17 +14,42 @@ const navigation = document.querySelector('[data-js="navigation"]');
 const prevButton = document.querySelector('[data-js="button-prev"]');
 const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
+let characterUrl = "https://rickandmortyapi.com/api/character";
 
 // States
-const maxPage = 1;
-const page = 1;
+let maxPage = 1;
+let page = 1;
 const searchQuery = "";
 
-// Functions
-async function fetchCharacters() {
-  const response = await fetch("https://rickandmortyapi.com/api/character");
-  const data = await response.json();
+// Globale Variablen
+let currentUrl = `${characterUrl}?page=${page}`;
+let prevUrl = null;
+let nextUrl = null;
 
+// Functions
+characterUrl = `${characterUrl}?page=${page}`;
+
+function callUrl(url) {
+  if (url === null) {
+    url = currentUrl;
+  }
+
+  return url;
+}
+// console.log(callUrl());
+async function fetchCharacters(url) {
+  const response = await fetch(callUrl(url));
+  const data = await response.json();
+  // Aktualisierung der "maxPages"
+  maxPage = data.info.pages;
+  prevUrl = data.info.prev;
+  nextUrl = data.info.next;
+  // console.log(prevUrl, nextUrl, currentUrl);
+  pagination.textContent = `${page} / ${maxPage}`;
+
+  cardContainer.innerHTML = "";
+
+  // Charaktere erhalten
   data.results.map((characterElement) => {
     // Deklaration der Objektelemente die durch die API gelesen werden
     const {
@@ -32,9 +57,9 @@ async function fetchCharacters() {
       name: imageAltText,
       name: nameCardTitle,
       status: statusCardInfo,
-      type: typeCardInfo, 
+      type: typeCardInfo,
     } = characterElement;
-    
+
     // Destruct "episode" separat, weil "length" operation nicht im destruct funktionierte
     const { episode } = characterElement;
     const occurencesCardInfo = episode.length;
@@ -53,11 +78,25 @@ async function fetchCharacters() {
     // return characterElement;
   });
 }
+prevButton.addEventListener("click", () => {
+  if (page > 1) {
+    page = page - 1;
 
+    fetchCharacters(prevUrl);
+  }
+});
+
+nextButton.addEventListener("click", () => {
+  if (page < maxPage) {
+    page = page + 1;
+
+    fetchCharacters(nextUrl);
+  }
+});
 // Experiments
 // hier experimenteller Code
 
 // Aufruf des Builds
-fetchCharacters();
+fetchCharacters(currentUrl);
 
 // Exports
