@@ -1,7 +1,9 @@
+/* Navigation Panel*/
 .navigation {
   height: 30px;
   display: grid;
   grid-template-columns: 100px 100px 100px;
+  background-color: var(--color-secondary);
 }
 
 .navigation__pagination {

@@ -1,32 +1,53 @@
+/* Imports */
 @import "components/CharacterCard/CharacterCard.css";
 @import "components/SearchBar/SearchBar.css";
 @import "components/NavButton/NavButton.css";
 @import "components/NavPagination/NavPagination.css";
 
+/* Universal Selektor Settings */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Root/HTML Settings */
 :root {
-  --color-primary: rgb(51, 51, 51);
-  --color-secondary: #f6f6f6;
+  --color-primary: hsl(0, 0%, 20%);
+  --color-secondary: hsl(0, 0%, 96%);
+  --color-blue: hsl(200, 50%, 25%);
   --font-family: system-ui;
+  --component-padding: 20px;
+  --component-content: 300px;
+  --component-width: calc(var(--component-padding) + var(--component-content));
+  --component-gap: 10px;
+
+  font-size: 18px;
+  /* Calculate the max-width via 2 variables: component-width + padding*/
+  max-width: calc(var(--component-width) + var(--component-padding)); 
 }
 
 body {
   font-family: var(--font-family);
   color: var(--color-primary);
-  padding: 20px;
+  padding: var(--component-padding);
 }
 
 main {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--component-gap);
+}
+
+/* Navigation as fix element on page-bottom  */
+nav {
+  position: fixed;
+  bottom: 0px;
 }
 
 .title {
   padding: 10px 0;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
 }

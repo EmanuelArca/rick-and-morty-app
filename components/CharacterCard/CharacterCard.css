@@ -1,6 +1,7 @@
 .card-container {
-  margin-bottom: 10px;
+  margin-bottom: var(--component-gap);
 }
+
 .card {
   width: 300px;
   background-color: var(--color-secondary);
@@ -10,6 +11,7 @@
   display: grid;
   grid-template-columns: auto 1fr;
 }
+
 .card__content {
   padding: 10px 20px 20px;
   display: grid;

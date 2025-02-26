@@ -1,5 +1,5 @@
 .search-bar-container {
-  width: 300px;
+  width: var(--component-content);
 }
 
 .search-bar {
@@ -26,4 +26,9 @@
 
 .search-bar__icon {
   width: 20px;
+}
+
+/* OnClick recolor the svg-icon*/
+.search-bar__icon:active {
+  color: var(--color-blue);
 }

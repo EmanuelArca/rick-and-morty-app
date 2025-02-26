@@ -1,7 +1,20 @@
 .button {
   border: none;
+  border-radius: 8px;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  transition: opacity 600ms;
+  z-index: 10;
 }
 
 .button:hover {
-  background-color: var(--color-secondary);
+  background-color: var(--color-blue);
+  color: var(--color-secondary);
+  opacity: 200ms;
+}
+
+/* Click Event farblich umkehren */
+.button:active {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
 }
