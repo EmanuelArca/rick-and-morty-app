@@ -13,6 +13,7 @@ function createCharacterCard(
   const cardItem = document.createElement("li");
 
   cardContainer.append(cardItem);
+  cardItem.classList.add("card");
   cardItem.innerHTML = `
         <div class="card__image-container">
             <img
@@ -37,5 +38,5 @@ function createCharacterCard(
   return cardItem;
 }
 
-createCharacterCard("emanuel");
+// Exports
 export { createCharacterCard };
