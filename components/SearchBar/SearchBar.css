@@ -1,5 +1,8 @@
+/* Search-Bar styles */
 .search-bar-container {
   width: var(--component-content);
+  position: sticky;
+  top: 0px;
 }
 
 .search-bar {
@@ -30,5 +33,5 @@
 
 /* OnClick recolor the svg-icon*/
 .search-bar__icon:active {
-  color: var(--color-blue);
+  color: var(--color-red);
 }

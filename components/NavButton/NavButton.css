@@ -8,7 +8,7 @@
 }
 
 .button:hover {
-  background-color: var(--color-blue);
+  background-color: var(--color-red);
   color: var(--color-secondary);
   opacity: 200ms;
 }

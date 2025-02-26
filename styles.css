@@ -1,8 +1,9 @@
 /* Imports */
-@import "components/CharacterCard/CharacterCard.css";
-@import "components/SearchBar/SearchBar.css";
-@import "components/NavButton/NavButton.css";
-@import "components/NavPagination/NavPagination.css";
+@import url("components/CharacterCard/CharacterCard.css");
+@import url("components/TitleHead/TitleHead.css");
+@import url("components/SearchBar/SearchBar.css");
+@import url("components/NavButton/NavButton.css");
+@import url("components/NavPagination/NavPagination.css");
 
 /* Universal Selektor Settings */
 * {
@@ -16,6 +17,7 @@
   --color-primary: hsl(0, 0%, 20%);
   --color-secondary: hsl(0, 0%, 96%);
   --color-blue: hsl(200, 50%, 25%);
+  --color-red: hsl(10, 80%, 30%);
   --font-family: system-ui;
   --component-padding: 20px;
   --component-content: 300px;
@@ -24,7 +26,7 @@
 
   font-size: 18px;
   /* Calculate the max-width via 2 variables: component-width + padding*/
-  max-width: calc(var(--component-width) + var(--component-padding)); 
+  max-width: calc(var(--component-width) + var(--component-padding));
 }
 
 body {
@@ -43,11 +45,4 @@ main {
 nav {
   position: fixed;
   bottom: 0px;
-}
-
-.title {
-  padding: 10px 0;
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
 }

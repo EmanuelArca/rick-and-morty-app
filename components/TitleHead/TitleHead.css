@@ -1,0 +1,7 @@
+.title {
+    padding: 10px 0;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+  }
+  
