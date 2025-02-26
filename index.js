@@ -21,20 +21,33 @@ let maxPage = 1;
 let page = 1;
 const searchQuery = "";
 
+// Globale Variablen
+let currentUrl = `${characterUrl}?page=${page}`;
+let prevUrl = null;
+let nextUrl = null;
+
 // Functions
+characterUrl = `${characterUrl}?page=${page}`;
 
-function paging() {
-  characterUrl = `${characterUrl}?page=${page}`;
-  return characterUrl;
+function callUrl(url) {
+  if (url === null) {
+    url = currentUrl;
+  }
+
+  return url;
 }
-
-async function fetchCharacters() {
-  const response = await fetch(paging());
+// console.log(callUrl());
+async function fetchCharacters(url) {
+  const response = await fetch(callUrl(url));
   const data = await response.json();
-
   // Aktualisierung der "maxPages"
   maxPage = data.info.pages;
+  prevUrl = data.info.prev;
+  nextUrl = data.info.next;
+  // console.log(prevUrl, nextUrl, currentUrl);
   pagination.textContent = `${page} / ${maxPage}`;
+
+  cardContainer.innerHTML = "";
 
   // Charaktere erhalten
   data.results.map((characterElement) => {
@@ -65,11 +78,25 @@ async function fetchCharacters() {
     // return characterElement;
   });
 }
+prevButton.addEventListener("click", () => {
+  if (page > 1) {
+    page = page - 1;
 
+    fetchCharacters(prevUrl);
+  }
+});
+
+nextButton.addEventListener("click", () => {
+  if (page < maxPage) {
+    page = page + 1;
+
+    fetchCharacters(nextUrl);
+  }
+});
 // Experiments
 // hier experimenteller Code
 
 // Aufruf des Builds
-fetchCharacters();
+fetchCharacters(currentUrl);
 
 // Exports
