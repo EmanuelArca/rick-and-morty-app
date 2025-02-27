@@ -1,4 +1,5 @@
-/* Search-Bar styles */
+/** Search-Bar Settings **/
+
 .search-bar-container {
   width: var(--component-content);
   position: sticky;

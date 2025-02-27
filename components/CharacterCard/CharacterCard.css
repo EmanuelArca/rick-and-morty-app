@@ -1,3 +1,5 @@
+/** Card Settings **/
+
 .card-container {
   margin-bottom: var(--component-gap);
 }
@@ -5,6 +7,7 @@
 .card {
   width: 300px;
   background-color: var(--color-secondary);
+  margin-bottom: var(--component-gap);
 }
 
 .card__info {

@@ -1,48 +1,7 @@
 /* Imports */
+@import url("components/Global/Global.css");
 @import url("components/CharacterCard/CharacterCard.css");
 @import url("components/TitleHead/TitleHead.css");
 @import url("components/SearchBar/SearchBar.css");
 @import url("components/NavButton/NavButton.css");
 @import url("components/NavPagination/NavPagination.css");
-
-/* Universal Selektor Settings */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* Root/HTML Settings */
-:root {
-  --color-primary: hsl(0, 0%, 20%);
-  --color-secondary: hsl(0, 0%, 96%);
-  --color-blue: hsl(200, 50%, 25%);
-  --color-red: hsl(10, 80%, 30%);
-  --font-family: system-ui;
-  --component-padding: 20px;
-  --component-content: 300px;
-  --component-width: calc(var(--component-padding) + var(--component-content));
-  --component-gap: 10px;
-
-  font-size: 18px;
-  /* Calculate the max-width via 2 variables: component-width + padding*/
-  max-width: calc(var(--component-width) + var(--component-padding));
-}
-
-body {
-  font-family: var(--font-family);
-  color: var(--color-primary);
-  padding: var(--component-padding);
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  gap: var(--component-gap);
-}
-
-/* Navigation as fix element on page-bottom  */
-nav {
-  position: fixed;
-  bottom: 0px;
-}
