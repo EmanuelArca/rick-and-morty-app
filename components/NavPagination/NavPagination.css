@@ -1,5 +1,6 @@
 /** Navigation Panel Settings **/
 
+/* Navigation Setup */
 .navigation {
   height: 30px;
   display: grid;
@@ -7,6 +8,7 @@
   background-color: var(--color-secondary);
 }
 
+/* Navigation Paging */
 .navigation__pagination {
   display: grid;
   place-items: center;

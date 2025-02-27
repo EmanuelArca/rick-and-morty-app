@@ -1,22 +1,27 @@
 /** Navigation-Button Settings **/
 
+/* Button Settings */
 .button {
   border: none;
   border-radius: 8px;
   background-color: var(--color-secondary);
   color: var(--color-primary);
-  transition: opacity 600ms;
+  opacity: 1; /* Durchsichtigkeit: 1= nicht Durchsichtig */
+  transition: background-color 300ms, color 300ms; /* Transformationsgeschwindigkeiten für festgelegte Eigenschaften */
   z-index: 10;
 }
 
+/* Button-Hover effect */
 .button:hover {
-  background-color: var(--color-red);
-  color: var(--color-secondary);
-  opacity: 200ms;
-}
-
-/* Click Event farblich umkehren */
-.button:active {
   background-color: var(--color-primary);
   color: var(--color-secondary);
+  opacity: 0.8; /* Durchsichtigkeit: 0.8= leicht durchsichtig */
+  
+}
+
+/* Click-Event color reversing */
+.button:active {
+  background-color: var(--color-red);
+  color: var(--color-secondary);
+  opacity: 1; /* Durchsichtigkeit: 1= nicht Durchsichtig */
 }
