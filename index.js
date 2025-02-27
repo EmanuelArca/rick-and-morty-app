@@ -93,8 +93,20 @@ nextButton.addEventListener("click", () => {
     fetchCharacters(nextUrl);
   }
 });
+
 // Experiments
 // hier experimenteller Code
+searchBar.addEventListener("focusin", () => {
+  searchBar.classList.add("search-bar-color");
+  searchBar.query.classList.add("search-bar-color", "search-bar__input-color");
+  searchBar["search-button"].classList.add("search-bar__icon-color"); // ACHTUNG: Benennung der HTML Namen spielt eine Rolle, "-" Bindestriche werden nicht akzeptiert in JS in Punktnatation!!
+});
+
+searchBar.addEventListener("focusout", () => {
+  searchBar.classList.remove("search-bar-color");
+  searchBar.query.classList.remove("search-bar-color", "search-bar__input-color");
+  searchBar["search-button"].classList.remove("search-bar__icon-color");
+});
 
 // Aufruf des Builds
 fetchCharacters(currentUrl);
