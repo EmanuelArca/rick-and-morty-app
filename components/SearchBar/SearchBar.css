@@ -1,18 +1,38 @@
+/** Search-Bar Settings **/
+
 .search-bar-container {
-  width: 300px;
+  width: var(--component-content);
+  position: sticky;
+  top: 0px;
 }
 
 .search-bar {
   padding: 10px 20px;
   background-color: var(--color-secondary);
+  color: var(--color-primary);
   display: grid;
   grid-template-columns: 1fr 24px;
+  transition: background-color 400ms, color 400ms;
+}
+
+/* Switching class on focus*/
+.search-bar-color {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 .search-bar__input {
   background-color: transparent;
   border: none;
+  /* color: var(--color-primary); */
+}
+
+.search-bar__input::placeholder {
   color: var(--color-primary);
+}
+
+.search-bar__input-color::placeholder {
+color: var(--color-secondary);
 }
 
 .search-bar__button {
@@ -22,8 +42,20 @@
 
 .search-bar__input:focus {
   outline: none;
+  /* background-color: var(--color-primary); */
 }
 
 .search-bar__icon {
   width: 20px;
+  transition: color 400ms;
+}
+
+/* OnClick recolor the svg-icon*/
+.search-bar__icon:active {
+  color: var(--color-red);
+}
+
+/* Switching class on focus*/
+.search-bar__icon-color {
+  color: var(--color-secondary);
 }
